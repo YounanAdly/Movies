@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:learn_api/backend/backend.dart';
+import 'package:learn_api/ui/movie_cast_card.dart';
 import 'package:provider/provider.dart';
 
-import '../ui/movie_cast_card.dart';
 
 class MovieCastAdapter extends StatelessWidget {
   final Movies movies;

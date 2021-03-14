@@ -23,7 +23,6 @@ class MovieReviewAdapter extends StatelessWidget {
             );
           } else {
             final riv = snapshot.data;
-            // print('TEST REV =' + riv[0]['author_details'].toString());
             return ListView.builder(
                 shrinkWrap: true,
                 physics: ClampingScrollPhysics(),

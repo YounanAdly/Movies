@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:learn_api/adapter/movie_cast_adapter.dart';
+import 'package:learn_api/adapter/movie_review_adapter.dart';
 import 'package:learn_api/adapter/movie_video_adapter.dart';
-import 'file:///D:/Android/Flutter/learn_api/lib/adapter/movie_review_adapter.dart';
 import 'package:learn_api/backend/backend.dart';
-import 'file:///D:/Android/Flutter/learn_api/lib/adapter/movie_cast_adapter.dart';
 
 
 class MoviesDetails extends StatelessWidget {

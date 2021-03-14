@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:learn_api/backend/backend.dart';
-import 'file:///D:/Android/Flutter/learn_api/lib/main.dart';
 
 class MoviesListContainer extends StatelessWidget {
   final Movies movies;
