@@ -7,31 +7,41 @@ import 'package:provider/provider.dart';
 import '../anim.dart';
 import 'movie_list_container.dart';
 
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
 
-class HomeScreen extends StatelessWidget {
+class _HomeScreenState extends State<HomeScreen> {
+  String _selectedItem = 'popular';
+  List _options = ['popular', 'now_playing', 'top_rated', 'upcoming'];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: Center(child: Text('Movies')),
-          actions: <Widget>[
-            PopupMenuButton<String>(
-              onSelected: handleClick,
+          actions: [
+            PopupMenuButton(
               itemBuilder: (BuildContext context) {
-                return {'Popular', 'Nowplaying'}.map((String choice) {
-                  return PopupMenuItem<String>(
-                    value: choice,
-                    child: new Container(
-                      child: Text(choice),
-                    ));
-                }).toList();
+                return _options
+                    .map((movies) => PopupMenuItem(
+                          child: Text(movies),
+                          value: movies,
+                        ))
+                    .toList();
+              },
+              onSelected: (value) {
+                setState(() {
+                  _selectedItem = value;
+                });
               },
             ),
           ],
         ),
         body: Center(
           child: FutureBuilder(
-            future: context.read<Backend>().getMovies('popular'),
+            future: context.read<Backend>().getMovies("$_selectedItem"),
             builder: (context, snapshot) {
               if (snapshot.hasError) {
                 return const Center(
@@ -65,16 +75,5 @@ class HomeScreen extends StatelessWidget {
             },
           ),
         ));
-  }
-}
-
-void handleClick(String value) {
-  print('TEST + = '  + value);
-  switch (value) {
-    case 'Popular': print('TEST 1');
-      // print('TEST +== ' + one.replaceAll(one, 'now_playing'));
-      break;
-    case 'Nowplaying' : print('TEST 2');
-      break;
   }
 }
