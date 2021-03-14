@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'file:///D:/Android/Flutter/learn_api/lib/ui/home_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'backend/backend.dart';
+import 'ui/home_screen.dart';
 
 void main() {
   final backend = Backend('https://api.themoviedb.org/3/movie');
